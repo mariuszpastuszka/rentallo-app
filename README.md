@@ -1,23 +1,28 @@
 ### Project requirements
-- lista wozow
-- opisy
+- lista aut
+  - opisy
+  - vin
+  - ceny
+  - dostępność
+  - zdjecia
+  - zasieg km
+
+Wypożycznie
+    - miejsce wypożyczenia
+    - czas wypożyczenia - data początku i końca
+    - miejsce oddania
+    - klient
+    - auto
+ 
 - wybor pojedynczego
-- zdjecia
-- dostępność
-- ceny
-- zasieg km
 - kontakt do firmy
 - warunki prawne
-- miejsce wypożyczenia
-- miejsce oddania
 - filtrowanie po właściwościach
 - odnośniki do mediów społecznościowych
 - jak długo klient ma prawo jazdy
 - historia wypożyczeń
 - płatności
-- vin
 - konta użytkoników
-- czas wypożyczenia
 - dostępne ubezpieczenia
 - admin/zwykły użytkownik
 - potwierdzenie wypożyczenia auta
