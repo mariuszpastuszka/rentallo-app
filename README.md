@@ -1,8 +1,40 @@
 ### Project requirements
+- CRUD for cars:
+  - API urls
+    - Read - GET
+      - /cars - read all cars
+      - list/200
+      - /cars/{id}
+      - one item/200
+      - 404 - not found
+      - /clients/{id}/cars/{id}
+    - Create - POST
+      - /cars
+      - 201/void/created item/header location
+    - Delete - DELETE
+      - /cars/{id}
+      - 200/content
+      - 204/no-content
+      - 404 - not found
+    - Update
+      - PUT - replace
+        - /cars/{id}
+        - 200/content
+      - PATCH - partial update
+        - /cars/{id}
+        - 200/content
 - lista aut
-  - opisy
+- pojedyńcze auto 
+  - model
+  - marka
+  - rodzaj paliwa
+  - opis silnika
+  - typ auta/kategoria
+  - ilość miejsc
+  - pojemność bagażnika w litrach
+  - spalanie
   - vin
-  - ceny
+  - cena w PLN
   - dostępność
   - zdjecia
   - zasieg km
