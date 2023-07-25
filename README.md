@@ -66,3 +66,10 @@ View        | View
 Controller  | Controller
 Model       | Service
             | Repository
+
+### Logging levels
+- trace
+- debug
+- info - default
+- warn
+- error
