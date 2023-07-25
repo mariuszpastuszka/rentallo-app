@@ -1,5 +1,6 @@
 package com.sda.rentalloapp.domain;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
 
@@ -11,5 +12,6 @@ public class Pictures {
 
     String mainPictureUrl;
 
+    @ElementCollection
     List<String> picturesUrls;
 }
