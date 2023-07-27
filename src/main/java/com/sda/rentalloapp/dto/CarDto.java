@@ -11,7 +11,7 @@ import lombok.Builder;
 public record CarDto(
         Long id,
         @NotNull
-        @Size(min = 2)
+        @Size(min = 1)
         String model,
         @NotNull
         @Size(min = 2)
