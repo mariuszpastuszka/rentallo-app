@@ -7,9 +7,11 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -41,11 +43,17 @@ public class CarRestController {
     }
 
     @PostMapping("/cars")
-    public ResponseEntity<Void> addCar(@RequestBody @Valid CarDto toSave) {
+    public ResponseEntity<Void> addCar(@RequestBody @Valid CarDto toSave,
+                                       UriComponentsBuilder ucb) {
         log.info("adding new car: [{}]", toSave);
 
         var result = carService.addCar(carMapper.fromDtoToEntity(toSave));
-        URI uri = URI.create("/api/cars/" + result.getId());
-        return ResponseEntity.created(uri).build();
+        URI path = ucb.path("/cars/{id}")
+//                .buildAndExpand(result.getId())
+                .buildAndExpand(Map.of("id", result.getId()))
+                .toUri();
+
+        // TODO: homework - cut to only path without server part
+        return ResponseEntity.created(path).build();
     }
 }
