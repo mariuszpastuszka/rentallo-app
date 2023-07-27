@@ -56,4 +56,12 @@ public class CarRestController {
         // TODO: homework - cut to only path without server part
         return ResponseEntity.created(path).build();
     }
+
+    @DeleteMapping("/cars/{id}")
+    public ResponseEntity<Void> deleteCar(@PathVariable("id") Long carId) {
+        log.info("trying to delete car with id: [{}]", carId);
+        carService.deleteCarById(carId);
+        return ResponseEntity.noContent()
+                .build();
+    }
 }
