@@ -1,5 +1,13 @@
 package com.sda.rentalloapp.dto;
 
-// TODO
-public record AddressDto() {
+
+public record AddressDto(
+        Long id,
+        String street,
+        String zipCode,
+        String city,
+        String houseNumber,
+        String voivodeship,
+        String country
+) {
 }
