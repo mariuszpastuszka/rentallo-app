@@ -29,4 +29,9 @@ public class Client {
     @ManyToOne
     Address address;
     LocalDateTime accountCreated;
+
+    @PrePersist
+    void setAccountCreated() {
+        accountCreated = LocalDateTime.now();
+    }
 }
