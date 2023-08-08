@@ -9,4 +9,8 @@ export class CarService {
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  getCars() {
+
+  }
 }
