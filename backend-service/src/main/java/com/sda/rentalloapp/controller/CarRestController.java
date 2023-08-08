@@ -16,6 +16,8 @@ import java.util.Map;
 @RestController
 @Slf4j
 @RequestMapping("/api")
+// FIXME :)
+@CrossOrigin("*")
 public class CarRestController {
 
     private final CarService carService;
