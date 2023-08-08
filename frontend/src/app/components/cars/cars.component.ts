@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {CarService} from "../../services/car/car.service";
 
 @Component({
   selector: 'app-cars',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class CarsComponent {
 
+  constructor(private carService: CarService) {
+  }
 }
