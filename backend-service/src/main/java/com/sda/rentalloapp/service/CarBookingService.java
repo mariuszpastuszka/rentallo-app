@@ -30,7 +30,6 @@ public class CarBookingService {
         this.locationService = locationService;
     }
 
-
     @Transactional
     public CarBooking bookCar(CarBookingRequestDto bookingDto) {
         log.info("Booking car with request: [{}]", bookingDto);
