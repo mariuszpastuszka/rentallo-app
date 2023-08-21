@@ -9,7 +9,7 @@ public record CarBookingDto(
         ClientDto client,
         LocalDate startDate,
         LocalDate endDate,
-        int totalPriceInPolishGrosz,
+        long totalPriceInPolishGrosz,
         AddressDto startLocation,
         AddressDto endLocation,
         LocalDateTime creationTimestamp,
