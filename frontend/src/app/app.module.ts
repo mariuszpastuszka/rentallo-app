@@ -17,6 +17,7 @@ import { RouterModule, Routes} from "@angular/router";
 import {aboutUrl, carsUrl, clientsUrl, homePageUrl, notFoundPageUrl, rentsHistoryUrl} from "./models/urls";
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {MatIconModule} from "@angular/material/icon";
 
 const routingTable: Routes = [
   {path: homePageUrl, component: HomeComponent},
@@ -46,6 +47,7 @@ const routingTable: Routes = [
     MatCardModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatIconModule,
     RouterModule.forRoot(routingTable)
   ],
   providers: [],
