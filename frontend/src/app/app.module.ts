@@ -8,19 +8,23 @@ import { HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsComponent,
-    TopBarComponent
+    TopBarComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
