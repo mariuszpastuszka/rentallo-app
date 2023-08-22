@@ -1,6 +1,9 @@
 package com.sda.rentalloapp.dto;
 
 
+import lombok.Builder;
+
+@Builder
 public record AddressDto(
         Long id,
         String street,
