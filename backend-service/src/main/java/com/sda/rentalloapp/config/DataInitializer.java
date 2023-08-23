@@ -47,6 +47,7 @@ public class DataInitializer implements CommandLineRunner {
 
         Address bieszczady = Address.builder()
                 .street("Bieszczadzka")
+                .city("Lublin")
                 .zipCode("01-123")
                 .houseNumber("11")
                 .voivodeship("Podkarpackie")
