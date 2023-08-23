@@ -18,6 +18,10 @@ import {aboutUrl, carsUrl, clientsUrl, homePageUrl, notFoundPageUrl, rentsHistor
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 const routingTable: Routes = [
   {path: homePageUrl, component: HomeComponent},
@@ -48,7 +52,11 @@ const routingTable: Routes = [
     MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
-    RouterModule.forRoot(routingTable)
+    RouterModule.forRoot(routingTable),
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
