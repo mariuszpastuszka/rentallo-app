@@ -1,8 +1,18 @@
 package com.sda.rentalloapp.domain.enumeration;
 
 public enum EngineType {
-    ELECTRIC_MOTOR,
-    V10,
-    V12,
-    V8
+    ELECTRIC_MOTOR("Electric motor"),
+    V10("V10"),
+    V12("V12"),
+    V8("V8");
+
+    private final String description;
+
+    EngineType(String description) {
+        this.description = description;
+    }
+
+    public String description() {
+        return description;
+    }
 }
