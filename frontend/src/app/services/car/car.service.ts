@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Car} from "../../models/car";
 import {Observable} from "rxjs";
-import {allCarsUrl} from "../../models/urls";
+import {allCarsUrl, createCarUrl} from "../../models/urls";
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +16,10 @@ export class CarService {
   getCars(): Observable<Array<Car>> {
     return this.httpClient
       .get<Array<Car>>(allCarsUrl)
+  }
+
+  sendCar(car: Car): Observable<Car> {
+    return this.httpClient
+      .post<Car>(createCarUrl, car)
   }
 }

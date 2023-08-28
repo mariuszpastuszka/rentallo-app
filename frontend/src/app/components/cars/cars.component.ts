@@ -13,6 +13,7 @@ export class CarsComponent implements OnInit {
   cars: Array<Car> = []
   // TODO: with explicit FormGroup
   carForm = new FormGroup({
+    id: new FormControl(null),
     model: new FormControl(''),
     brand: new FormControl(''),
     fuelType: new FormControl(''),
@@ -32,6 +33,9 @@ export class CarsComponent implements OnInit {
   })
 
   value: any;
+  get id() {
+    return this.carForm.controls.id
+  }
   get rangeInKm() {
     return this.carForm.controls.rangeInKm
   }
@@ -86,5 +90,6 @@ export class CarsComponent implements OnInit {
   sendCar() {
     console.log("data submitted")
     this.value = this.carForm.value
+    this.carService.sendCar(this.carForm.value as Car)
   }
 }
