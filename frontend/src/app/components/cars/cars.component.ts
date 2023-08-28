@@ -30,6 +30,36 @@ export class CarsComponent implements OnInit {
       picturesUrls: new FormControl(Array<string>)
     })
   })
+
+  value: any;
+  get rangeInKm() {
+    return this.carForm.controls.rangeInKm
+  }
+  get available() {
+    return this.carForm.controls.available
+  }
+  get pricePerDayInPolishGrosz() {
+    return this.carForm.controls.pricePerDayInPolishGrosz
+  }
+  get bodySerialNumber() {
+    return this.carForm.controls.bodySerialNumber
+  }
+  get combustionPer100Km() {
+    return this.carForm.controls.combustionPer100Km
+  }
+  get trunkCapacityInLitres() {
+    return this.carForm.controls.trunkCapacityInLitres
+  }
+  get numberOfSeats() {
+    return this.carForm.controls.numberOfSeats
+  }
+
+  get bodyType() {
+    return this.carForm.controls.bodyType
+  }
+  get engineType() {
+    return this.carForm.controls.engineType
+  }
   get fuelType() {
     return this.carForm.controls.fuelType
   }
@@ -51,5 +81,10 @@ export class CarsComponent implements OnInit {
         console.log("data from server: " + JSON.stringify(carsFromServer, null, 2))
         this.cars = carsFromServer
       })
+  }
+
+  sendCar() {
+    console.log("data submitted")
+    this.value = this.carForm.value
   }
 }

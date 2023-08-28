@@ -1,15 +1,49 @@
 <div>
   <div>
+    <p>Form value: {{ value | json }}</p>
     <h2>Create new car</h2>
-    <form [formGroup]="carForm">
+    <form [formGroup]="carForm" (ngSubmit)="sendCar()">
       <label for="model">Model:</label>
-      <input id="model" [formControl]="model" type="text">
+      <input id="model" [formControl]="model" type="text"><br/>
 
       <label for="brand">Brand</label>
-      <input id="brand" type="text" [formControl]="brand">
+      <input id="brand" type="text" [formControl]="brand"><br/>
 
       <label for="fuelType">Fuel type</label>
-      <input id="fuelType" type="text" [formControl]="fuelType">
+      <input id="fuelType" type="text" [formControl]="fuelType"><br/>
+
+      <label for="engineType">Engine type</label>
+      <input id="engineType" type="text" [formControl]="engineType"><br/>
+
+      <label for="bodyType">Body type</label>
+      <input id="bodyType" type="text" [formControl]="bodyType"><br/>
+
+      <label for="numberOfSeats">Number of seats</label>
+      <input id="numberOfSeats" type="number" [formControl]="numberOfSeats"><br/>
+
+      <label for="trunkCapacityInLitres">Trunk capacity in litres</label>
+      <input id="trunkCapacityInLitres" type="number" [formControl]="trunkCapacityInLitres"><br/>
+
+      <label for="combustionPer100Km">Combustion per 100 km</label>
+      <input id="combustionPer100Km" type="number" [formControl]="combustionPer100Km"><br/>
+
+      <label for="bodySerialNumber">Body serial number</label>
+      <input id="bodySerialNumber" type="text" [formControl]="bodySerialNumber"><br/>
+
+      <label for="pricePerDayInPolishGrosz">Price per day in polish grosz</label>
+      <input id="pricePerDayInPolishGrosz" type="number" [formControl]="pricePerDayInPolishGrosz"><br/>
+
+      <label for="available">Is available</label>
+      <input id="available" type="text" [formControl]="available"><br/>
+
+      <label for="rangeInKm">Range in [km]</label>
+      <input id="rangeInKm" type="number" [formControl]="rangeInKm"><br/>
+
+<!--      TODO-->
+      <label for="rangeInKm">Pictures</label>
+
+      <button type="submit" mat-raised-button>Create</button>
+      <button type="reset" mat-raised-button>Reset</button>
     </form>
   </div>
   <div *ngFor="let car of cars">
