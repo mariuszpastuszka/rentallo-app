@@ -11,6 +11,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class CarsComponent implements OnInit {
 
   cars: Array<Car> = []
+  // TODO: with explicit FormGroup
   carForm = new FormGroup({
     model: new FormControl(''),
     brand: new FormControl(''),
