@@ -1,7 +1,8 @@
 <div>
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
     <mat-button-toggle [routerLink]="homePageUrl">Home page</mat-button-toggle>
-    <mat-button-toggle [routerLink]="rentsHistoryUrl">My rents history</mat-button-toggle>
+    <mat-button-toggle
+      *ngIf="!loginService.isLogged" [routerLink]="rentsHistoryUrl">My rents history</mat-button-toggle>
     <mat-button-toggle [routerLink]="carsUrl">Our cars</mat-button-toggle>
     <mat-button-toggle
       *ngIf="loginService.isAdmin()" [routerLink]="clientsUrl">Our clients</mat-button-toggle>
