@@ -5,5 +5,9 @@ curl localhost:9001/oauth2/token \
 -H"Content-type: application/x-www-form-urlencoded" \
 -d"grant_type=authorization_code" \
 -d"redirect_uri=http://localhost:4200" \
--d"code=TyYiQtIC0FV0lOV3Exi7-ZbX2GHbDFAGiifcxtgKQWBWHXC7547jkebVS2RIv_hTI5gpo7JjqZrGZs1iVrX4sYgFtJIXcj1x-nrV7Feis3GWRiNl8qJPqUuiBRNIEVvA" \
+-d"code=$code" \
 -u rentallo-app:secret
+
+curl localhost:8080/api/cars \
+-H"Content-type: application/json" \
+-H"Authorization: Bearer $token" -v
