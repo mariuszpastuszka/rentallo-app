@@ -24,6 +24,13 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {ReactiveFormsModule} from "@angular/forms";
 import {authGuard} from "./services/login/login.service";
+import {
+  AuthConfig,
+  JwksValidationHandler, OAuthModule,
+  OAuthModuleConfig,
+  OAuthStorage,
+  ValidationHandler
+} from "angular-oauth2-oidc";
 
 const routingTable: Routes = [
   {path: homePageUrl, component: HomeComponent},
@@ -33,6 +40,34 @@ const routingTable: Routes = [
   {path: aboutUrl, component: AboutComponent},
   {path: notFoundPageUrl, component: NotFoundComponent}
 ]
+
+const config: AuthConfig = {
+  issuer: 'http://localhost:9001/',
+  loginUrl: 'http://localhost:9001/oauth/authorize',
+  tokenEndpoint: 'http://localhost:9001/oauth/token',
+  dummyClientSecret: 'secret',
+  clientId: 'rentallo-app',
+  disablePKCE: true,
+  responseType: 'code',
+  oidc: true,
+  requireHttps: false,
+  strictDiscoveryDocumentValidation: false,
+  redirectUri: window.location.origin + '/',
+  silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
+  scope: 'openid',
+  requestAccessToken: true,
+  skipIssuerCheck: true,
+  showDebugInformation: true,
+
+};
+
+const authModuleConfig: OAuthModuleConfig = {
+  // Add the Bearer header for these URLs (APIs).
+  resourceServer: {
+    allowedUrls: ['http://localhost:8080'],
+    sendAccessToken: true,
+  },
+};
 
 @NgModule({
   declarations: [
@@ -59,9 +94,15 @@ const routingTable: Routes = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    OAuthModule.forRoot(authModuleConfig),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: OAuthModuleConfig, useValue: authModuleConfig },
+    { provide: ValidationHandler, useClass: JwksValidationHandler },
+    { provide: OAuthStorage, useValue: localStorage },
+    { provide: AuthConfig, useValue: config },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
