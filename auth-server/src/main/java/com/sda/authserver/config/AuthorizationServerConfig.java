@@ -5,6 +5,7 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.util.Arrays;
 import java.util.UUID;
 
 import org.springframework.context.annotation.Bean;
@@ -37,6 +38,9 @@ import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration(proxyBeanMethods = false)
 public class AuthorizationServerConfig {
@@ -49,6 +53,7 @@ public class AuthorizationServerConfig {
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
                 .oidc(Customizer.withDefaults());
         return http
+                .cors(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .build();
     }
@@ -60,12 +65,13 @@ public class AuthorizationServerConfig {
                 RegisteredClient.withId(UUID.randomUUID().toString())
                         .clientId("rentallo-app")
                         .clientSecret(passwordEncoder.encode("secret"))
-                        .clientAuthenticationMethod(
-                                ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                        .clientAuthenticationMethods(clientAuthenticationMethods -> {
+                            clientAuthenticationMethods.add(ClientAuthenticationMethod.CLIENT_SECRET_BASIC);
+                            clientAuthenticationMethods.add(ClientAuthenticationMethod.CLIENT_SECRET_POST);
+                        })
                         .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                         .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                        .redirectUri(
-                                "http://localhost:4200")
+                        .redirectUri("http://localhost:4200")
                         .scope("management")
                         .scope(OidcScopes.OPENID)
                         .build();

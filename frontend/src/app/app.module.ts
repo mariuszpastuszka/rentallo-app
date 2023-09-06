@@ -43,8 +43,8 @@ const routingTable: Routes = [
 
 const config: AuthConfig = {
   issuer: 'http://localhost:9001/',
-  loginUrl: 'http://localhost:9001/oauth/authorize',
-  tokenEndpoint: 'http://localhost:9001/oauth/token',
+  // loginUrl: 'http://localhost:9001/oauth/authorize',
+  // tokenEndpoint: 'http://localhost:9001/oauth/token',
   dummyClientSecret: 'secret',
   clientId: 'rentallo-app',
   disablePKCE: true,
@@ -52,9 +52,9 @@ const config: AuthConfig = {
   oidc: true,
   requireHttps: false,
   strictDiscoveryDocumentValidation: false,
-  redirectUri: window.location.origin + '/',
+  redirectUri: 'http://localhost:4200',
   silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
-  scope: 'openid',
+  scope: 'openid management',
   requestAccessToken: true,
   skipIssuerCheck: true,
   showDebugInformation: true,
