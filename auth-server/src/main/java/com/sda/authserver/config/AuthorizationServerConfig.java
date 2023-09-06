@@ -74,6 +74,7 @@ public class AuthorizationServerConfig {
                         .redirectUri("http://localhost:4200")
                         .scope("management")
                         .scope(OidcScopes.OPENID)
+                        .postLogoutRedirectUri("http://localhost:4200")
                         .build();
         return new InMemoryRegisteredClientRepository(registeredClient);
     }

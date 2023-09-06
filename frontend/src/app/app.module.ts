@@ -43,8 +43,6 @@ const routingTable: Routes = [
 
 const config: AuthConfig = {
   issuer: 'http://localhost:9001/',
-  // loginUrl: 'http://localhost:9001/oauth/authorize',
-  // tokenEndpoint: 'http://localhost:9001/oauth/token',
   dummyClientSecret: 'secret',
   clientId: 'rentallo-app',
   disablePKCE: true,
@@ -58,7 +56,7 @@ const config: AuthConfig = {
   requestAccessToken: true,
   skipIssuerCheck: true,
   showDebugInformation: true,
-
+  logoutUrl: 'http://localhost:4200'
 };
 
 const authModuleConfig: OAuthModuleConfig = {
